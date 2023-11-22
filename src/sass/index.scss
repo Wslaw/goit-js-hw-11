@@ -1,2 +1,42 @@
 @import './common';
 @import './example';
+
+.load-more {
+  color: #ff6b0a;
+  margin-bottom: 20px;
+}
+.search-form {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 100vh; /* Это гарантирует, что ваша форма будет всегда внизу страницы */
+  margin: 0; /* Убирает внешние отступы у body */
+}
+
+.search-form {
+  padding: 30px 720px;
+  background-color: rgb(65, 76, 157, 0.7);
+  /* Ваши текущие стили для формы */
+  margin-top: 20px; /* Позволяет форме быть внизу */
+}
+
+.load-more {
+  margin-bottom: 20px; /* Регулируйте отступ, как вам нужно */
+}
+.search-form input{
+    padding: 5px 20px;
+    border-radius: 5px;
+    // outline: 1px solid;
+}
+.search-form button{
+    padding: 5px 20px;
+    margin-left: 20px;
+    border-radius: px;
+}
