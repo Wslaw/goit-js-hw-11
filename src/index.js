@@ -32,10 +32,13 @@ const lightbox = new SimpleLightbox('.gallery-item');
 
 let searchQueryRes = '';
 let currentPage = 1;
+// let backButton;
 
 loadMoreBtn.classList.add('is-hidden');
+
 loadMoreBtn.addEventListener('click', () => {
     loadMoreBtn.classList.add('is-hidden');
+    backButton.classList.remove('is-hidden');
     fetchImages();
 })
 form.addEventListener('submit', async event => {
