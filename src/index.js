@@ -25,13 +25,15 @@ const loadMoreBtn = document.querySelector('.load-more');
 const API_KEY = '40845730-59b552d3cf1577a71be805545';
 const BASE_URL = 'https://pixabay.com/api/';
 const gallery = document.querySelector(".gallery");
-loadMoreBtn.classList.add('is-hidden');
+const lightbox = new SimpleLightbox('.gallery-item');
+
+
 
 
 let searchQueryRes = '';
 let currentPage = 1;
-let q = '';
 
+loadMoreBtn.classList.add('is-hidden');
 loadMoreBtn.addEventListener('click', () => {
     loadMoreBtn.classList.add('is-hidden');
     fetchImages();
@@ -51,6 +53,8 @@ form.addEventListener('submit', async event => {
         Notiflix.Notify.failure('Please enter a search query');
         return;
     }
+    currentPage = 1;
+    gallery.innerHTML = ''; 
     await fetchImages();
 });
 
@@ -65,7 +69,7 @@ const fetchImages = async () => {
         console.log(response.data);
         if (hits.length === 0) {
             Notiflix.Notify.warning(
-                'Sorry, there are no images matching your search query. Please try again.'
+                'Sorry, there are no images matching your search query. Please try again.', 5000
             );
             return;
         }
@@ -90,18 +94,21 @@ const fetchImages = async () => {
 
 };
 
+const updateLightbox = () => {
+    lightbox.refresh();
+}
+
 const renderImages = (images) => {
-    /*Перебираємо масив зображень та створюємо для нього карточку:*/
-    const imageCards = images.map((image) => {
-        /*Викликаємо фукцію createImageCard для створення HTML розмітки:*/
-        const cardMarkUp = createImageCard(image);
-        /* возвращаем разметку карточки: */
-        return cardMarkUp;
-    });
-    //Поєднуємо всі картки в один рядок
-    const allCardsMarkUp = imageCards.join('');
-    // Вставляємо розмітку всіх карток у кінец галлереї
-    gallery.insertAdjacentHTML('beforeend', allCardsMarkUp);
+  /*Перебираємо масив зображень та створюємо для нього карточку:*/
+  const imageCards = images.map(image => {
+    /*Викликаємо фукцію createImageCard для створення HTML розмітки:*/
+    const cardMarkUp = createImageCard(image);
+    /* возвращаем разметку карточки: */
+    return cardMarkUp;
+  }); //Поєднуємо всі картки в один рядок
+  const allCardsMarkUp = imageCards.join('');
+  // Вставляємо розмітку всіх карток у кінец галлереї
+  gallery.insertAdjacentHTML('beforeend', allCardsMarkUp);
 };
 
 const createImageCard = ({ webformatURL, largeImageURL, tags, likes, views, comments, downloads }) => {
@@ -116,10 +123,10 @@ const createImageCard = ({ webformatURL, largeImageURL, tags, likes, views, comm
       <p class="info-item"><b>Downloads:</b> ${downloads}</p>
     </div>
   </div>`;
-    // 6 Step
-    const updateLightbox = () => {
-        const lightbox = new SimpleLightbox('.gallery-item');
-        lightbox.show();
-        lightbox.refresh();
-    }
 }
+// 6 Step
+// const updateLightbox = () => {
+//     const lightbox = new SimpleLightbox('.gallery');
+//     lightbox.show();
+//     lightbox.refresh();
+// }

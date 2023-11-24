@@ -110,8 +110,10 @@ border: 2px solid #ccc;
 
 .photo-card{
   border: 2px solid #212121;
+    flex-basis: calc(100% / 5 - 20px);
+
   // width: 100%;
-  // display: flex;
+  display: block;
   // flex-direction: row;
   // flex-wrap: wrap;
   // justify-content: center;
