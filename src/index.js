@@ -6,9 +6,6 @@ import 'simplelightbox/dist/simple-lightbox.min.css';
 import axios from 'axios';
 import Notiflix from 'notiflix';
 
-
-
-
 // var API_KEY = '40845730-59b552d3cf1577a71be805545';
 // var URL = "https://pixabay.com/api/?key="+API_KEY+"&q="+encodeURIComponent('red roses');
 // $.getJSON(URL, function(data){
@@ -24,18 +21,34 @@ import Notiflix from 'notiflix';
 // 4.Створити функцию для розмітки карток зображень
 // 5.Створити скролл
 
-const form = document.querySelector("#search-form");
-const loadMoreBtn = document.querySelector(".load-more");
+const form = document.querySelector('#search-form');
+const loadMoreBtn = document.querySelector('.load-more');
 const API_KEY = '40845730-59b552d3cf1577a71be805545';
 const BASE_URL = 'https://pixabay.com/api/';
 let searchQueryRes = '';
 
-form.addEventListener("submit", async (event) => {
-    event.preventDefault();
-    // читаємо инпут:
-    // searchQueryRes = event.target.elements.searchQuery.value;
-    // console.log(searchQuery);
-    const { elements: { searchQuery } } = event.target;
-    searchQueryRes = searchQuery.value;
-    console.log("searchQueryRes =>", searchQueryRes);
-})
+loadMoreBtn.classList.add('is-hidden');
+
+form.addEventListener('submit', async event => {
+  event.preventDefault();
+  // читаємо инпут:
+  // searchQueryRes = event.target.elements.searchQuery.value;
+  // console.log(searchQuery);
+  const {
+    elements: { searchQuery },
+  } = event.target;
+  searchQueryRes = searchQuery.value.trim();
+  console.log('searchQueryRes =>', searchQueryRes);
+    searchQuery.value = '';
+    if (!searchQueryRes) {
+        Notiflix.Notify.failure('Please enter a search query');
+        return;
+    }
+    await fetchImages();
+});
+
+// 3step
+
+const fetchImages = async () => {
+    
+}

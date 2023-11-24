@@ -1,6 +1,10 @@
 @import './common';
 // @import './example';
 
+.is-hidden {
+    display: none;
+}
+
 .load-more {
   color: #ff6b0a;
   margin-bottom: 20px;
