@@ -20,18 +20,22 @@ import Notiflix from 'notiflix';
 // 3.Створити функцию для рендеринга карток зображень
 // 4.Створити функцию для розмітки карток зображень
 // 5.Створити скролл
-
 const form = document.querySelector('#search-form');
 const loadMoreBtn = document.querySelector('.load-more');
 const API_KEY = '40845730-59b552d3cf1577a71be805545';
 const BASE_URL = 'https://pixabay.com/api/';
 const gallery = document.querySelector(".gallery");
+loadMoreBtn.classList.add('is-hidden');
+
 
 let searchQueryRes = '';
 let currentPage = 1;
 let q = '';
 
-
+loadMoreBtn.addEventListener('click', () => {
+    loadMoreBtn.classList.add('is-hidden');
+    fetchImages();
+})
 form.addEventListener('submit', async event => {
   event.preventDefault();
   // читаємо инпут:
@@ -77,9 +81,8 @@ const fetchImages = async () => {
             Notiflix.Notify.info(`Hooray! We found ${totalHits} images.`);
         }
         currentPage += 1;
-        //    ***************************************
-        // lightbox.refresh();/*  */
-        /**************************************** */
+        updateLightbox();
+        
     } catch (error) {
         console.error('Error fetching images:', error);
         Notiflix.Notify.failure('Something went wrong. Please try again later.');
