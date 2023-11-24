@@ -103,7 +103,7 @@ const renderImages = (images) => {
 
 const createImageCard = ({ webformatURL, largeImageURL, tags, likes, views, comments, downloads }) => {
     return `<div class="photo-card">
-    <a href="${largeImageURL}" class="js-gallery-item" data-lightbox="gallery" data-title="${tags}">
+    <a href="${largeImageURL}" class="gallery-item" data-lightbox="gallery" data-title="${tags}">
       <img src="${webformatURL}" alt="${tags}" loading="lazy" />
     </a>
     <div class="info">
@@ -115,7 +115,8 @@ const createImageCard = ({ webformatURL, largeImageURL, tags, likes, views, comm
   </div>`;
     // 6 Step
     const updateLightbox = () => {
-        const lightbox = new SimpleLightbox('.js-gallery-item');
+        const lightbox = new SimpleLightbox('.gallery-item');
+        lightbox.show();
         lightbox.refresh();
     }
 }
