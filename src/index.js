@@ -78,7 +78,7 @@ const fetchImages = async () => {
         }
         currentPage += 1;
         //    ***************************************
-        SimpleLightbox.refresh();/*  */
+        // lightbox.refresh();/*  */
         /**************************************** */
     } catch (error) {
         console.error('Error fetching images:', error);
@@ -99,5 +99,23 @@ const renderImages = (images) => {
     const allCardsMarkUp = imageCards.join('');
     // Вставляємо розмітку всіх карток у кінец галлереї
     gallery.insertAdjacentHTML('beforeend', allCardsMarkUp);
+};
 
+const createImageCard = ({ webformatURL, largeImageURL, tags, likes, views, comments, downloads }) => {
+    return `<div class="photo-card">
+    <a href="${largeImageURL}" class="js-gallery-item" data-lightbox="gallery" data-title="${tags}">
+      <img src="${webformatURL}" alt="${tags}" loading="lazy" />
+    </a>
+    <div class="info">
+      <p class="info-item"><b>Likes:</b> ${likes}</p>
+      <p class="info-item"><b>Views:</b> ${views}</p>
+      <p class="info-item"><b>Comments:</b> ${comments}</p>
+      <p class="info-item"><b>Downloads:</b> ${downloads}</p>
+    </div>
+  </div>`;
+    // 6 Step
+    const updateLightbox = () => {
+        const lightbox = new SimpleLightbox('.js-gallery-item');
+        lightbox.refresh();
+    }
 }
