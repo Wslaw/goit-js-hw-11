@@ -25,9 +25,12 @@ const form = document.querySelector('#search-form');
 const loadMoreBtn = document.querySelector('.load-more');
 const API_KEY = '40845730-59b552d3cf1577a71be805545';
 const BASE_URL = 'https://pixabay.com/api/';
-let searchQueryRes = '';
+const gallery = document.querySelector(".gallery");
 
-loadMoreBtn.classList.add('is-hidden');
+let searchQueryRes = '';
+let currentPage = 1;
+let q = '';
+
 
 form.addEventListener('submit', async event => {
   event.preventDefault();
@@ -39,7 +42,7 @@ form.addEventListener('submit', async event => {
   } = event.target;
   searchQueryRes = searchQuery.value.trim();
   console.log('searchQueryRes =>', searchQueryRes);
-    searchQuery.value = '';
+    searchQuery.value = '';/* text delete */
     if (!searchQueryRes) {
         Notiflix.Notify.failure('Please enter a search query');
         return;
@@ -50,5 +53,51 @@ form.addEventListener('submit', async event => {
 // 3step
 
 const fetchImages = async () => {
-    
+    try {
+        const response = await axios.get(
+            `${BASE_URL}?key=${API_KEY}&q=${searchQueryRes}&image_type=photo&orientation=horizontal&safesearch=true&page=${currentPage}&per_page=40`
+        );
+        const { totalHits, hits } = response.data;
+        console.log(response.data);
+        if (hits.length === 0) {
+            Notiflix.Notify.warning(
+                'Sorry, there are no images matching your search query. Please try again.'
+            );
+            return;
+        }
+
+        // Render
+        renderImages(hits);
+        // LoadMore- is hidden?
+        if (hits.length < totalHits) {
+            loadMoreBtn.classList.remove('is-hidden');
+
+        } else {
+            loadMoreBtn.classList.add('is-hidden');
+            Notiflix.Notify.info(`Hooray! We found ${totalHits} images.`);
+        }
+        currentPage += 1;
+        //    ***************************************
+        SimpleLightbox.refresh();/*  */
+        /**************************************** */
+    } catch (error) {
+        console.error('Error fetching images:', error);
+        Notiflix.Notify.failure('Something went wrong. Please try again later.');
+    }
+
+};
+
+const renderImages = (images) => {
+    /*Перебираємо масив зображень та створюємо для нього карточку:*/
+    const imageCards = images.map((image) => {
+        /*Викликаємо фукцію createImageCard для створення HTML розмітки:*/
+        const cardMarkUp = createImageCard(image);
+        /* возвращаем разметку карточки: */
+        return cardMarkUp;
+    });
+    //Поєднуємо всі картки в один рядок
+    const allCardsMarkUp = imageCards.join('');
+    // Вставляємо розмітку всіх карток у кінец галлереї
+    gallery.insertAdjacentHTML('beforeend', allCardsMarkUp);
+
 }
