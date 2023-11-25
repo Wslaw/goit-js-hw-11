@@ -69,8 +69,8 @@ const fetchImages = async () => {
             `${BASE_URL}?key=${API_KEY}&q=${searchQueryRes}&image_type=photo&orientation=horizontal&safesearch=true&page=${currentPage}&per_page=40`
         );
       const { totalHits, hits } = response.data;
-        console.log('currentPage:', currentPage);
-      console.log('hits:', hits);
+        // console.log('currentPage:', currentPage);
+      // console.log('hits:', hits);
       console.log('totalHits:', totalHits);
         if (hits.length === 0) {
             Notiflix.Notify.warning(
