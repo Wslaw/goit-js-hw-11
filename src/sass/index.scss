@@ -2,11 +2,8 @@
 // @import './example';
 
 .is-hidden {
-    display: none;
+  display: none;
 }
-
-
-
 
 body {
   display: flex;
@@ -17,7 +14,6 @@ body {
   margin: 0; /* Убирает внешние отступы у body */
   background-color: #8ec1d2;
   z-index: -1;
-
 }
 .search-form {
   display: flex;
@@ -34,70 +30,68 @@ body {
   border-radius: 10px;
   border: 1px solid #fff;
   color: blueviolet;
-  margin-bottom: 20px; }
+  margin-bottom: 20px;
+}
 
 .load-more:hover {
-font-weight: 500;
-cursor: pointer;
+  font-weight: 500;
+  cursor: pointer;
   outline: none;
   background-color: rgb(189, 214, 214);
-  
 }
 
 .load-more:focus {
   font-weight: 500;
   outline: none;
   background-color: rgb(161, 183, 183);
-  
 }
 
-.search-form input{
+.search-form input {
   height: 40px;
   width: 500px;
   padding: 5px 20px;
   border-radius: 20px 5px 5px 20px;
-margin-right: 5px;
-border: 1px solid #ccc;
-outline: none;
+  margin-right: 5px;
+  border: 1px solid #ccc;
+  outline: none;
 }
 
-.search-form button{
-    padding: 5px 20px;
-    border-radius: 5px 20px 20px 5px;
-    border: 2px solid #ccc;
-    cursor: pointer;
+.search-form button {
+  padding: 5px 20px;
+  border-radius: 5px 20px 20px 5px;
+  border: 2px solid #ccc;
+  cursor: pointer;
 }
-.search-form button:hover{
-    padding: 2px 17px;
-    border-radius: 20px 20px 20px 20px;
-    background-color: rgb(226, 223, 223, 0.6);
-    font-weight: 500;
-    font-size: 18px;
+.search-form button:hover {
+  padding: 2px 17px;
+  border-radius: 20px 20px 20px 20px;
+  background-color: rgb(226, 223, 223, 0.6);
+  font-weight: 500;
+  font-size: 18px;
+}
+.search-form button:focus {
+  padding: 2px 17px;
+  border-radius: 20px 20px 20px 20px;
+  background-color: rgb(226, 223, 223, 0.6);
+  font-weight: 500;
+  font-size: 18px;
+  border: 2px solid #ccc;
+}
 
-}
-.search-form button:focus{
-    padding: 2px 17px;
-    border-radius: 20px 20px 20px 20px;
-    background-color: rgb(226, 223, 223, 0.6);
-    font-weight: 500;
-    font-size: 18px;
-    border: 2px solid #ccc;
-}
-
-.search-form input:hover{
+.search-form input:hover {
   border-radius: 20px 20px 20px 20px;
   background-color: rgb(211, 208, 208, 0.8);
   border: 2px solid #ccc;
 }
-.search-form input:focus{
+.search-form input:focus {
   border-radius: 20px 20px 20px 20px;
   background-color: rgb(211, 208, 208, 0.8);
-border: 2px solid #ccc;
+  border: 2px solid #ccc;
 }
 
 // ////////////////////////////////////////////////////
 // ////////STYLE OF GALLERY/////////////////////////
-.gallery{
+.gallery {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
@@ -105,12 +99,12 @@ border: 2px solid #ccc;
   margin: 100px auto 0;
 }
 .photo-card img {
-    border-radius: 20px 20px 0px 0px; /* Задайте нужный вам радиус скругления */
+  border-radius: 20px 20px 0px 0px; /* Задайте нужный вам радиус скругления */
 }
-.photo-card{
+.photo-card {
   outline: none;
   // border: 2px solid #9cded7;
-    flex-basis: calc(100% / 5 - 20px);
+  flex-basis: calc(100% / 5 - 20px);
 
   // width: 100%;
   display: block;
@@ -119,7 +113,7 @@ border: 2px solid #ccc;
   // justify-content: center;
   // margin: 1px auto 0;
 }
-.gallery-item{
+.gallery-item {
   display: block;
   margin: 5px 5px;
   flex-basis: calc(100% / 5 - 20px);
@@ -127,18 +121,18 @@ border: 2px solid #ccc;
   // border: 1px solid #808080;
   border-radius: 20px;
   text-decoration: none;
-flex-wrap: wrap;
+  flex-wrap: wrap;
 }
-img{
+img {
   width: 100%;
   height: 200px;
   display: flex;
   justify-content: center;
-// border: 1px solid #808080;
-// outline: none;
+  // border: 1px solid #808080;
+  // outline: none;
 }
 
-.info{
+.info {
   padding: 10px 20px;
   margin: 5px auto;
   width: 97%;
@@ -153,14 +147,14 @@ img{
   border-radius: 0 0 5px 5px;
 }
 
-.info-item{
+.info-item {
   display: flex;
   flex-direction: column;
-text-align: center;
-padding: 0 10px;
-font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-line-height: 1.7;
-font-size: 0.7em;
+  text-align: center;
+  padding: 0 10px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  line-height: 1.7;
+  font-size: 0.7em;
 }
 // *********************************************************
 .back-button {
@@ -187,7 +181,7 @@ font-size: 0.7em;
 .back-button:hover {
   background-color: rgba(192, 186, 186, 0.9);
   font-weight: 500;
- padding: 10px 18px;
+  padding: 10px 18px;
 }
 
 // *****************************************
@@ -196,5 +190,5 @@ font-size: 0.7em;
 //   background-size: cover; /* Растягиваем изображение, чтобы оно полностью покрывало фон */
 //   background-position: center; /* Выравниваем изображение по центру */
 //   background-repeat: no-repeat; /* Запрещаем повторение изображения */
-  
+
 // }

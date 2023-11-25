@@ -55,7 +55,7 @@ form.addEventListener('submit', async event => {
     if (!searchQueryRes) {
         Notiflix.Notify.failure('Please enter a search query');
         return;
-    }
+  }
     currentPage = 1;
     gallery.innerHTML = ''; 
     await fetchImages();
@@ -68,8 +68,10 @@ const fetchImages = async () => {
         const response = await axios.get(
             `${BASE_URL}?key=${API_KEY}&q=${searchQueryRes}&image_type=photo&orientation=horizontal&safesearch=true&page=${currentPage}&per_page=40`
         );
-        const { totalHits, hits } = response.data;
-        console.log(response.data);
+      const { totalHits, hits } = response.data;
+        console.log('currentPage:', currentPage);
+      console.log('hits:', hits);
+      console.log('totalHits:', totalHits);
         if (hits.length === 0) {
             Notiflix.Notify.warning(
                 'Sorry, there are no images matching your search query. Please try again.', 5000
@@ -80,7 +82,7 @@ const fetchImages = async () => {
         // Render
         renderImages(hits);
         // LoadMore- is hidden?
-        if (hits.length < totalHits) {
+        if (currentPage*40 <= totalHits) {
             loadMoreBtn.classList.remove('is-hidden');
 
         } else {
