@@ -195,3 +195,19 @@ img {
 //   background-repeat: no-repeat; /* Запрещаем повторение изображения */
 
 // }
+// ******************************************
+
+.star {
+  position: absolute;
+  background-color: white;
+  width: 2px;
+  height: 2px;
+  opacity: 0;
+  animation: blinkAnimation 2s infinite alternate;
+  z-index: -1;
+}
+
+@keyframes blinkAnimation {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
