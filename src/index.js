@@ -43,9 +43,7 @@ loadMoreBtn.addEventListener('click', () => {
 })
 form.addEventListener('submit', async event => {
   event.preventDefault();
-  // читаємо инпут:
-  // searchQueryRes = event.target.elements.searchQuery.value;
-  // console.log(searchQuery);
+  
   const {
     elements: { searchQuery },
   } = event.target;
@@ -149,3 +147,5 @@ function createStars() {
 }
 
 createStars();
+// Делаем функцию fetchImages глобальной
+window.fetchImages = fetchImages;
