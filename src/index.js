@@ -32,7 +32,7 @@ const lightbox = new SimpleLightbox('.gallery-item');
 
 
 let searchQueryRes = '';
-let currentPage = 1;
+export let currentPage = 1;
 // let backButton;
 
 loadMoreBtn.classList.add('is-hidden');

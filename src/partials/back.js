@@ -1,3 +1,5 @@
+import { currentPage } from "..";
+
 window.backButton = document.createElement('button');
 window.backButton.classList.add('back-button');
 window.backButton.textContent = 'Back to top';
