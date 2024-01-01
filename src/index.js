@@ -6,6 +6,7 @@ import 'simplelightbox/dist/simple-lightbox.min.css';
 import axios from 'axios';
 import Notiflix from 'notiflix';
 
+
 // var API_KEY = '40845730-59b552d3cf1577a71be805545';
 // var URL = "https://pixabay.com/api/?key="+API_KEY+"&q="+encodeURIComponent('red roses');
 // $.getJSON(URL, function(data){
