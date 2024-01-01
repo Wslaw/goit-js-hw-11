@@ -32,7 +32,7 @@ const lightbox = new SimpleLightbox('.gallery-item');
 
 
 let searchQueryRes = '';
-export let currentPage = 1;
+let currentPage = 1;
 // let backButton;
 
 loadMoreBtn.classList.add('is-hidden');
@@ -150,3 +150,20 @@ function createStars() {
 createStars();
 // Делаем функцию fetchImages глобальной
 window.fetchImages = fetchImages;
+
+document.addEventListener('DOMContentLoaded', async () => {
+  // Определите ваш диапазон страниц
+  const minPage = 1;
+  const maxPage = 10;
+
+  // Генерация случайной страницы для запроса
+  const randomPage =
+    Math.floor(Math.random() * (maxPage - minPage + 1)) + minPage;
+  // Присвоение случайной страницы currentPage
+  currentPage = randomPage;
+
+  // Вызываем функцию fetchImages из глобального объекта window
+  if (window.fetchImages) {
+    await window.fetchImages();
+  }
+});
