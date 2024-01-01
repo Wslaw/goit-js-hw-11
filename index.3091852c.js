@@ -1,2 +1,0 @@
-window.backButton=document.createElement("button"),window.backButton.classList.add("back-button"),window.backButton.textContent="Back to top",window.backButton.classList.add("is-hidden"),document.body.appendChild(backButton),window.backButton.addEventListener("click",(()=>{window.scrollTo({top:0,behavior:"smooth"})})),document.addEventListener("DOMContentLoaded",(async()=>{const t=Math.floor(10*Math.random())+1;currentPage=t,window.fetchImages&&await window.fetchImages()}));
-//# sourceMappingURL=index.3091852c.js.map
