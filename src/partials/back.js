@@ -1,4 +1,4 @@
-import { currentPage } from "..";
+import { currentPage } from "../index";
 
 window.backButton = document.createElement('button');
 window.backButton.classList.add('back-button');
