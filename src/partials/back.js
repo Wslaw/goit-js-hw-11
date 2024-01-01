@@ -1,10 +1,10 @@
-const backButton = document.createElement('button');
-backButton.textContent = 'Back to top';
-backButton.classList.add('back-button');
-backButton.classList.add('is-hidden');
+window.backButton = document.createElement('button');
+window.backButton.classList.add('back-button');
+window.backButton.textContent = 'Back to top';
+window.backButton.classList.add('is-hidden');
 document.body.appendChild(backButton);
 
-backButton.addEventListener('click', () => {
+window.backButton.addEventListener('click', () => {
   // Вернуться к началу страницы
   window.scrollTo({ top: 0, behavior: 'smooth' });
 });

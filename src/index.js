@@ -39,7 +39,7 @@ loadMoreBtn.classList.add('is-hidden');
 
 loadMoreBtn.addEventListener('click', () => {
     loadMoreBtn.classList.add('is-hidden');
-    backButton.classList.remove('is-hidden');
+    window.backButton.classList.remove('is-hidden');
     fetchImages();
 })
 form.addEventListener('submit', async event => {
